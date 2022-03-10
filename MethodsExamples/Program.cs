@@ -27,6 +27,18 @@ namespace MethodsExamples
             //TODO: write the result by calling IsInRange
             Console.WriteLine($"Given a starting number of {StartingNum}, and a target number of {TargetNum},it's {IsWithinRange(StartingNum, TargetNum, range)} ");
 
+            //This is for the PrintDoc()
+            Console.WriteLine("Do we have power? (y/n)");
+            bool hasPower = Console.ReadLine().ToLower() == "y";
+
+            Console.WriteLine("Do we have paper? (y/n)");
+            bool hasPaper = Console.ReadLine().ToLower() == "y";
+
+            Console.WriteLine("What is your ink level?");
+            int inkLevel =int.Parse(Console.ReadLine());
+
+            PrintDoc(hasPower, hasPaper, inkLevel);
+
         }
         //access modifier followed by static or not followed by return type, then name, then (), then parameters
         private static bool IsWithinRange(int num, int target, int range)
@@ -38,5 +50,13 @@ namespace MethodsExamples
             return (num - target) <= range && (num - target) >= -range;
         }
 
+        //TODO: Print a document if it hasPower, hasPaper, and the ink level >=10//
+        private static void PrintDoc(bool hasPower, bool hasPaper, int inkLevel)
+        {
+            string result = hasPaper && hasPower && inkLevel >= 10 ? "Printing" : "Unabe to print";
+            Console.Write(result);
+
+           // if (hasPower && hasPaper && inkLevel>=10)//
+        }
     }
 }
